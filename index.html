@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <button id="sve-slike" class="btn" data-kat="sve">Sve slike</button>
+      <button id="kat1" class="btn" data-kat="stan">Kategorija1 - KUCA</button>
+      <button id="kat2" class="btn" data-kat="kuca">Kategrija2 - STAN</button>
+      <button id="kat3" class="btn" data-kat="dvoriste">
+        Kategoriije3 - DVORISTE
+      </button>
+      <!-- <button class="btn-color">Click me</button> -->
+    </div>
+    <div class="images">
+      <img
+        src="slike/slika1.jpg"
+        class="galerija"
+        data-kategorija="kuca"
+        alt="prva slika"
+      />
+      <img
+        src="slike/slika2.jpg"
+        class="galerija"
+        data-kategorija="kuca"
+        alt="druga slika"
+      />
+      <img
+        src="slike/slika3.jpg"
+        class="galerija"
+        data-kategorija="stan"
+        alt="treca slika"
+      />
+      <img
+        src="slike/slika4.jpg"
+        class="galerija"
+        data-kategorija="stan"
+        alt="cetvrta slika"
+      />
+      <img
+        src="slike/slika4.jpg"
+        class="galerija"
+        data-kategorija="dvoriste"
+        alt="cetvrta slika"
+      />
+      <img
+        src="slike/slika4.jpg"
+        class="galerija"
+        data-kategorija="dvoriste"
+        alt="cetvrta slika"
+      />
+    </div>
+    <div class="modal hidden">
+      <p>Ovo je modal</p>
+      <div>
+        <p id="closeModal" class="clModal">X</p>
+        <div class="mestoZaSliku">
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="script2.js"></script>
+  </body>
+</html>
