@@ -8,9 +8,46 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="main"></div>
-    <label id="naslovBoje">TRENUTNA BOJA</label>
-    <div class="trenutnaBoja"></div>
+    <div id="aplikacija">
+      <div class="forma">
+      
+          <label for="imeIgraca">Ime igraca</label>
+          <input type="text" id="ime" required />
+          <label class="imeValidacija hidden" style="color: red;">Morate uneti ime</label>
+
+          <label for="prezimeIgraca">Prezime igraca</label>
+          <input type="text" id="prezime" required />
+          <label class="prezimeValidacija hidden" style="color: red;">Morate uneti prezime</label>
+          <label for="oblikFigure">Izaberite oblik figure</label>
+          <div>
+            <input type="radio" id="krug" name="figura" value="krug"/>
+            <label class="figuraValidacija hidden" style="color: red;">Morate uneti figuru</label>
+          <label for="krug">Krug</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="kvadrat"
+            name="figura"
+            value="kvadrat"
+          />
+          <label for="krug">Kvadrat</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="pravougaonik"
+            name="figura"
+            value="pravougaonik"
+          />
+          <label for="krug">Pravougaonik</label>
+        </div>
+        <input type="submit" class="prijava" value="Prijavi se" />
+      </div>
+      <div class="main hidden"></div>
+      <label id="naslovBoje">TRENUTNA BOJA</label>
+      <div class="trenutnaBoja"></div>
+    </div>
     <script src="loptice.js"></script>
   </body>
 </html>
