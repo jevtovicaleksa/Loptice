@@ -1,11 +1,19 @@
-const brojLoptica = 24;
+const brojLoptica = 2;
 const main = document.querySelector(".main");
 const forma = document.querySelector(".forma");
 const naslovBoje = document.getElementById("naslovBoje");
-const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
+// const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
+const boje = ["#0984e3", "#d63031"];
 const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
 let oblik = "oblikPravougaonik";
 
+// Setujemo promenljive koje koristimo za izracunavanje vremena. Prosledjujemo ih funkciji
+let pocetnoVreme = 0;
+let krajnjeVreme = 0;
+// let ukupnoVreme = 0;
+
+// Setujemo promenljivu koju koristimo za promenu boje
+let pomocnaBoja = 0;
 
 // Prikazujemo loptice dinamicki kroz for petlju
 for (let i = 0; i <= brojLoptica; i++) {
@@ -16,9 +24,6 @@ for (let i = 0; i <= brojLoptica; i++) {
   lopta.innerHTML = `<div class="${oblik}" style="background-color: ${randomBoja}" data-color="${randomBoja}"></div>`;
   main.append(lopta);
 }
-
-let pomocnaBoja = 0;
-let pomocnaSekunde = 0;
 
 // Kreiramo prazan niz u koji smestamo onoliko elemenata koliko ima boja
 let kolicinaBoja = [];
@@ -36,21 +41,35 @@ svaPolja.forEach(function (jednoPolje) {
   }
   // Prelaskom misa preko loptice pozivamo f-ju koja brise tu lopticu.
   jednoPolje.addEventListener("mouseover", function () {
-    obrisiLoptu(jednoPolje);
+    obrisiLoptu(jednoPolje, pocetnoVreme);
     prikazatiBoju();
   });
 });
 
 // Funkcija za brisanje loptice. Ukoliko se boja loptice poklapa sa redosledom boje iz niza obrisace se loptica.
-const obrisiLoptu = function (loptica) {
+const obrisiLoptu = function (loptica, pocetak) {
   if (loptica.dataset.color === boje[pomocnaBoja]) {
     loptica.remove();
     kolicinaBoja[pomocnaBoja]--;
     if (kolicinaBoja[pomocnaBoja] === 0) {
       pomocnaBoja++;
       if (pomocnaBoja >= boje.length) {
-        alert("Svaka cast");
-        // window.location.reload();
+        krajnjeVreme = new Date();
+        let ukupnoVreme = Math.abs((krajnjeVreme - pocetak) / 1000 );
+
+
+        // Ispraviti 
+        let lStorage = localStorage.getItem('korisnici');
+        console.log(lStorage);
+        let korisnik = JSON.parse(lStorage);
+        console.log(korisnik);
+        // korisnik.push(ukupnoVreme);
+        // localStorage.setItem('vreme', JSON.stringify(korisnik));
+        // localStorage.setItem('korisnici', JSON.stringify(ukupnoVreme));
+
+
+        alert(`Vase vreme je ${ukupnoVreme} sekundi`)
+        window.location.reload();
       }
     }
   } else {
@@ -75,56 +94,3 @@ const prikazatiBoju = function () {
 // Prikazuje mi prvu boju koju treba da uklonim
 const trenutnaBoja = document.querySelector(".trenutnaBoja");
 trenutnaBoja.style.backgroundColor = `${boje[pomocnaBoja]}`;
-
-
-// Prikupljanje podataka iz forme i smestanje u localStorage
-document.querySelector(".prijava").addEventListener("click", function () {
-  if(validacijaForme() === true){
-    forma.classList.add("hidden");
-    main.classList.remove("hidden");
-    naslovBoje.classList.remove("hidden");
-  
-    const ime = document.getElementById("ime").value;
-    const prezime = document.getElementById("prezime").value;
-    const oblikFigure = document.querySelector(
-      'input[name="figura"]:checked'
-    ).value;
-  
-    // Smestanje podataka u localStorage
-    let podaciLocalStorage = [];
-    let korisnik = {
-      "ime" : ime,
-      "prezime" : prezime,
-      "oblik" : oblikFigure
-    }
-  
-    podaciLocalStorage.push(korisnik);
-    // let korisnici = localStorage.setItem('korisnici', JSON.stringify(podaciLocalStorage));
-  }
-});
-
-// F-ja za proveru forme.
-const validacijaForme = function() {
-  // Prikupljamo iz html elemente(polja) kako bi proverili da li su popunjena
-  const ime = document.getElementById("ime").value;
-  const prezime = document.getElementById("prezime").value;
-  const figura = document.querySelector('input[name="figura"]:checked');
-// Ukoliko polja nisu popunjena prikazujemo preko labele poruku. Uklanjamo joj klasu hidden kako bi bila vidljiva.
-  if(ime.trim().length === 0){
-    document.querySelector('.imeValidacija').classList.remove("hidden");
-    console.log('1');
-  }else if(prezime.trim().length === 0){
-    document.querySelector(".prezimeValidacija").classList.remove("hidden");
-    console.log(2);
-  }else if(figura === null){
-    document.querySelector(".figuraValidacija").classList.remove("hidden");
-    console.log(3);
-  }
-
-// Ukoliko prodjemo formu (sva polja budu popunjena f-ja nam vraca true). 
-  if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null ){
-    return true;
-  }else{
-    return false;
-  }
-}
