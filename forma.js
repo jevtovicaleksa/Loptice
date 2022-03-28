@@ -1,5 +1,6 @@
 // Prikupljanje podataka iz forme i smestanje u localStorage
 document.querySelector(".prijava").addEventListener("click", function () {
+  oblikFigure();
     if(validacijaForme() === true){
       pocetnoVreme = new Date();
       forma.classList.add("hidden");
@@ -13,9 +14,7 @@ document.querySelector(".prijava").addEventListener("click", function () {
       ).value;
     
       // Prikupljamo podatke iz LocalStorage-a i smestamo u promenljivu ls
-      let ls = localStorage.getItem('korisnici')
-    //   let vremeIgrice = localStorage.getItem('vreme');
-    //   console.log(vremeIgrice);
+      let ls = localStorage.getItem('korisnici');
       // Podatke iz forme smestamo u korisnika
       let korisnik = {
             "ime" : ime,
@@ -23,13 +22,13 @@ document.querySelector(".prijava").addEventListener("click", function () {
             "oblik" : oblikFigure
         }
 
-      //ako posotji item u storage-u prikupljamo te podatke i na te podatke smestamo nove koji dolaze iz forme
+        //ako posotji item u storage-u prikupljamo te podatke i na te podatke smestamo nove koji dolaze iz forme
       if(ls != null) {
         let korisnici = JSON.parse(ls);
         korisnici.push(korisnik);
         localStorage.setItem('korisnici', JSON.stringify(korisnici));
       }else {
-          // prvi put koristimo formu(aplikaciju) na ovom kompu. Pravimo niz u koji smestamo podatke iz forme a onda iz niza stavljamo u storage
+        // prvi put koristimo formu(aplikaciju) na ovom kompu. Pravimo niz u koji smestamo podatke iz forme a onda iz niza stavljamo u storage
         let korisnici = [];
         korisnici.push(korisnik);
         localStorage.setItem('korisnici', JSON.stringify(korisnici));
@@ -59,3 +58,11 @@ document.querySelector(".prijava").addEventListener("click", function () {
       return false;
     }
   }
+
+  // Oblik figure u zavisnosti od selektovanog polja
+
+  const oblikFigure = function(){
+    let figura = document.querySelector('input[name="figura"]:checked');
+    oblik = figura.value;
+  }
+  console.log(oblik);

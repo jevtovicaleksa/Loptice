@@ -92,3 +92,10 @@ body {
 .hidden {
   display: none;
 }
+.tabelaRezultata,
+th,
+td {
+  border: 10px solid;
+  border-color: black;
+  background-color: white;
+}

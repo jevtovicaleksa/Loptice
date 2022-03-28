@@ -57,19 +57,16 @@ const obrisiLoptu = function (loptica, pocetak) {
         krajnjeVreme = new Date();
         let ukupnoVreme = Math.abs((krajnjeVreme - pocetak) / 1000 );
 
+        // Dopunjavanje u localstorage vreme za svakog korisnika.
+        
+        // Prikuoljamo podatke koji se vec nalaze u ls, prilikom popunjavanja forme
+         let lStorage = JSON.parse(localStorage.getItem('korisnici'));
 
-        // Ispraviti 
-        let lStorage = localStorage.getItem('korisnici');
-        console.log(lStorage);
-        let korisnik = JSON.parse(lStorage);
-        console.log(korisnik);
-        // korisnik.push(ukupnoVreme);
-        // localStorage.setItem('vreme', JSON.stringify(korisnik));
-        // localStorage.setItem('korisnici', JSON.stringify(ukupnoVreme));
-
-
-        alert(`Vase vreme je ${ukupnoVreme} sekundi`)
-        window.location.reload();
+        // Poslednjem korisniku dodajemo vreme za koje je preso igricu
+         lStorage[lStorage.length -1]['vreme'] = ukupnoVreme;
+         localStorage.setItem('korisnici',JSON.stringify(lStorage));
+         alert(`Vase vreme je ${ukupnoVreme} sekundi`)
+         window.location.reload();
       }
     }
   } else {
@@ -94,3 +91,20 @@ const prikazatiBoju = function () {
 // Prikazuje mi prvu boju koju treba da uklonim
 const trenutnaBoja = document.querySelector(".trenutnaBoja");
 trenutnaBoja.style.backgroundColor = `${boje[pomocnaBoja]}`;
+
+
+//Dodavanje podataka iz localStorage u tabelu 
+let podaciLS = JSON.parse(localStorage.getItem('korisnici'));
+if(podaciLS != null){
+  console.log(podaciLS);
+  const teloTabele = document.getElementById('teloTabele');
+  podaciLS.forEach(podatakIgraca => {
+  console.log(podatakIgraca);
+  teloTabele.innerHTML += ` 
+                      <tr>
+                        <td>${podatakIgraca.ime}</td>
+                        <td>${podatakIgraca.prezime}</td>
+                        <td>${podatakIgraca.vreme}</td>
+                      </tr> `;
+  });
+}
