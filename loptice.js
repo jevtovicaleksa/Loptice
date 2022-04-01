@@ -46,7 +46,6 @@ const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
       prikazatiBoju();
     });
   });
-  
   // Funkcija za brisanje loptice. Ukoliko se boja loptice poklapa sa redosledom boje iz niza obrisace se loptica.
   const obrisiLoptu = function (loptica, pocetak) {
     if (loptica.dataset.color === boje[pomocnaBoja]) {
@@ -67,6 +66,7 @@ const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
            lStorage[lStorage.length -1]['vreme'] = ukupnoVreme;
            localStorage.setItem('korisnici',JSON.stringify(lStorage));
            alert(`Vase vreme je ${ukupnoVreme} sekundi`)
+           kreiranjeIgraca(ukupnoVreme);
            window.location.reload();
         }
       }
@@ -96,10 +96,8 @@ const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
   //Dodavanje podataka iz localStorage u tabelu 
   let podaciLS = JSON.parse(localStorage.getItem('korisnici'));
   if(podaciLS != null){
-    console.log(podaciLS);
     const teloTabele = document.getElementById('teloTabele');
     podaciLS.forEach(podatakIgraca => {
-    console.log(podatakIgraca);
     teloTabele.innerHTML += ` 
                         <tr>
                           <td>${podatakIgraca.ime}</td>
@@ -109,3 +107,25 @@ const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
     });
   }
 
+
+  // // Axios 
+  // const getUsers = () => {
+  //   axios.get('https://reqres.in/api/users')
+  //   .then(response => {
+  //     const users = response;
+  //     console.log(users);
+  //   })
+  //   .catch(error => console.error(error));
+  // };
+
+  // getUsers();
+
+  // const createuser = (user) => {
+  //   axios.post('https://reqres.in/api/users', user)
+  //   .then(response => {
+  //     const addedUser = response.data;
+  //     console.log(`POST: user is added`, addedUser);
+  //   })
+  //   .catch(error => console.error(error));
+  // }
+  // createuser('aleksa');

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!--Ucitavanje axios biblioteke-->
   </head>
   <body>
     <div id="aplikacija">
       <div class="forma">
-      
           <label for="imeIgraca">Ime igraca</label>
           <input type="text" id="ime" required />
           <label class="imeValidacija hidden" style="color: red;">Morate uneti ime</label>
@@ -43,6 +43,7 @@
           <label for="krug">Pravougaonik</label>
         </div>
         <input type="submit" class="prijava" value="Prijavi se" />
+        <p id="podaciApi"></p>
       </div>
       <div class="main hidden"></div>
       <label id="naslovBoje">TRENUTNA BOJA</label>
