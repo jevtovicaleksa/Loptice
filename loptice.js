@@ -106,26 +106,3 @@ const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
                         </tr> `;
     });
   }
-
-
-  // // Axios 
-  // const getUsers = () => {
-  //   axios.get('https://reqres.in/api/users')
-  //   .then(response => {
-  //     const users = response;
-  //     console.log(users);
-  //   })
-  //   .catch(error => console.error(error));
-  // };
-
-  // getUsers();
-
-  // const createuser = (user) => {
-  //   axios.post('https://reqres.in/api/users', user)
-  //   .then(response => {
-  //     const addedUser = response.data;
-  //     console.log(`POST: user is added`, addedUser);
-  //   })
-  //   .catch(error => console.error(error));
-  // }
-  // createuser('aleksa');
