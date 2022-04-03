@@ -32,6 +32,8 @@ body {
 }
 .main {
   display: grid;
+  /* background-color: #ffffff; */
+  background-color: #faf7f7;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   padding: 100px;
@@ -46,6 +48,13 @@ body {
   width: 30px;
   height: 30px;
 }
+.oblikRomb {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  transform: rotate(45deg);
+}
+
 .oblikPravougaonik {
   padding: 20px;
 }
@@ -75,19 +84,20 @@ body {
 }
 .forma {
   display: grid;
-  width: 60%;
+  /* width: 60%; */
   gap: 10px;
   background-color: white;
+  justify-content: center;
 }
 .prijava {
-  width: 10%;
+  /* width: 10%; */
   border-radius: 5px;
 }
 #ime {
-  width: 30%;
+  /* width: 30%; */
 }
 #prezime {
-  width: 30%;
+  /* width: 30%; */
 }
 .hidden {
   display: none;
