@@ -7,19 +7,28 @@ const skorIgraca = function() {
     .then(response => {
         let sviIgraci = response.data;
         
+        let dugmeObrisi;
         sviIgraci.forEach(igrac => {
+            if(igrac.lozinka === 'admin'){
+                dugmeObrisi = `<button type="button" class="obrisiIgraca btn btn-danger">Obrisi</button>`;
+            }else{
+                dugmeObrisi = '';
+            }
             tabelaIgraca.innerHTML += `<tr> 
                                             <td>${igrac.ime}</td>
                                             <td>${igrac.prezime}</td>
                                             <td>${igrac.figura}</td>
                                             <td>${igrac.vreme}</td>
+                                            <td>${igrac.lozinka}  ${dugmeObrisi}</td>
                                         </tr>`
         });
-
     })
 }
 
 skorIgraca();
+
+
+let obrisi = document.getElementById("obirsiIgraca");
 
 
 /* dodaj dugme OBRISI SKOR

@@ -1,7 +1,8 @@
 const brojLoptica = 24;
 const main = document.querySelector(".main");
 const forma = document.querySelector(".forma");
-const naslovBoje = document.getElementById("naslovBoje");
+const naslovBoje = document.querySelector(".naslovBoje");
+const treBoja = document.querySelector(".trenutnaBoja");
 const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
 // const boje = ["#0984e3", "#d63031"];
 const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
@@ -94,15 +95,15 @@ const trenutnaBoja = document.querySelector(".trenutnaBoja");
 trenutnaBoja.style.backgroundColor = `${boje[pomocnaBoja]}`;
 
 //Dodavanje podataka iz localStorage u tabelu
-let podaciLS = JSON.parse(localStorage.getItem("korisnici"));
-if (podaciLS != null) {
-  const teloTabele = document.getElementById("teloTabele");
-  podaciLS.forEach((podatakIgraca) => {
-    teloTabele.innerHTML += ` 
-                        <tr>
-                          <td>${podatakIgraca.ime}</td>
-                          <td>${podatakIgraca.prezime}</td>
-                          <td>${podatakIgraca.vreme}</td>
-                        </tr> `;
-  });
-}
+// let podaciLS = JSON.parse(localStorage.getItem("korisnici"));
+// if (podaciLS != null) {
+//   const teloTabele = document.getElementById("teloTabele");
+//   podaciLS.forEach((podatakIgraca) => {
+//     teloTabele.innerHTML += ` 
+//                         <tr>
+//                           <td>${podatakIgraca.ime}</td>
+//                           <td>${podatakIgraca.prezime}</td>
+//                           <td>${podatakIgraca.vreme}</td>
+//                         </tr> `;
+//   });
+// }

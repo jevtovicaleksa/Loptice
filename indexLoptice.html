@@ -16,60 +16,71 @@
     <!--Ucitavanje axios biblioteke-->
   </head>
   <body>
+
     <div id="aplikacija">
+
       <nav class="navbar navbar-dark bg-primary justify-content-center">
         <a class="navbar-brand" href="#">RESTFULL API U PHP-U</a>
       </nav>
 
       <div class="forma bt-5">
-        <label for="imeIgraca">Ime igraca</label>
-        <input type="text" id="ime" required />
-        <label class="imeValidacija hidden" style="color: red"
-          >Morate uneti ime</label
-        >
 
-        <label for="prezimeIgraca">Prezime igraca</label>
+        <label style="padding-top: 15px;" for="imeIgraca">Ime igraca</label>
+        <input class="" type="text" id="ime" required />
+        <label class="imeValidacija hidden" style="color: red">Morate uneti ime</label>
+
+        <label style="padding-top: 15px;" for="prezimeIgraca">Prezime igraca</label>
         <input type="text" id="prezime" required />
-        <label class="prezimeValidacija hidden" style="color: red"
-          >Morate uneti prezime</label
-        >
-        <label for="oblikFigure">Izaberite oblik figure</label>
-        <div>
-          <input type="radio" id="krug" name="figura" value="oblikKrug" />
-          <label class="figuraValidacija hidden" style="color: red"
-            >Morate uneti figuru</label
-          >
-          <label for="krug">Krug</label>
-        </div>
-        <div>
-          <input type="radio" id="kvadrat" name="figura" value="oblikKvadrat" />
-          <label for="krug">Kvadrat</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="pravougaonik"
-            name="figura"
-            value="oblikPravougaonik"
-          />
-          <label for="krug">Pravougaonik</label>
-        </div>
-        <div>
-          <input type="radio" id="romb" name="figura" value="oblikRomb" />
-          <label for="krug">Romb</label>
-        </div>
+        <label class="prezimeValidacija hidden" style="color: red">Morate uneti prezime</label>
+
+        
+        <label style="padding-top: 15px;" for="lozinkaIgraca">Lozinka igraca</label>
+        <input type="password" id="lozinka" required />
+        <label class="lozinkaValidacija hidden" style="color: red">Morate uneti lozinku</label>
+
+
+
+        <label style="padding-top: 15px;" for="oblikFigure">Izaberite oblik figure</label>
+          <div>
+            <input type="radio" id="krug" name="figura" value="oblikKrug" />
+          
+            <label for="krug">Krug</label>
+          </div>
+
+          <div>
+            <input type="radio" id="kvadrat" name="figura" value="oblikKvadrat" />
+            <label for="krug">Kvadrat</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="pravougaonik"
+              name="figura"
+              value="oblikPravougaonik"
+            />
+            <label for="krug">Pravougaonik</label><br>
+            <label class="figuraValidacija hidden" style="color: red; padding-bottom: 15px;"
+            >Morate uneti figuru</label>
+          </div>
+
         <input
           type="submit"
           class="prijava btn btn-success"
           value="Prijavi se"
+          style="margin-top: 15px;"
         />
         <p id="podaciApi"></p>
-      </div>
-      <div class="main hidden"></div>
-      <label id="naslovBoje">TRENUTNA BOJA</label>
-      <div class="trenutnaBoja"></div>
 
-      <div>
+      </div>
+
+      <div class="main hidden"></div>
+
+      <label class="naslovBoje hidden"></label>
+
+      <div class="trenutnaBoja hidden"></div>
+
+      <!-- <div>
         <table class="tabelaRezultata">
           <thead id="naslovTabele">
             <tr>
@@ -80,9 +91,12 @@
           </thead>
           <tbody id="teloTabele"></tbody>
         </table>
-      </div>
+      </div> -->
+
     </div>
+
     <script src="forma.js"></script>
     <script src="loptice.js"></script>
+
   </body>
 </html>
