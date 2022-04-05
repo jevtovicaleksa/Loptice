@@ -2,45 +2,53 @@
 // Prikupljanje podataka iz forme i smestanje u localStorage
 document.querySelector(".prijava").addEventListener("click", function () {
 
-        tipFigure();
-        // kreiranjeIgraca();
-     
-        pocetnoVreme = new Date();
-        forma.classList.add("hidden");
-        main.classList.remove("hidden");
-        naslovBoje.classList.remove("hidden");
+  if(validacijaForme() === true){
 
-        const ime = document.getElementById("ime").value;
-        const prezime = document.getElementById("prezime").value;
-        const oblikFigure = document.querySelector(
-          'input[name="figura"]:checked'
-        ).value;
+    tipFigure();
 
-        // Prikupljamo podatke iz LocalStorage-a i smestamo u promenljivu ls
-        let ls = localStorage.getItem('korisnici');
+     // kreiranjeIgraca();
+  
+     // Postavljanje pocetnog vremena.
+     pocetnoVreme = new Date();
 
-        // Podatke iz forme smestamo u korisnika
-        let korisnik = {
-              "ime" : ime,
-              "prezime" : prezime,
-              "oblik" : oblikFigure
-          }
+     // Kada klikom odemo na 'prijavi se' uklanja nam se forma.
+     forma.classList.add("hidden");
+     main.classList.remove("hidden");
+     treBoja.classList.remove("hidden");
+     naslovBoje.classList.remove("hidden");
 
-        //ako posotji item u storage-u prikupljamo te podatke i na te podatke smestamo nove koji dolaze iz forme
-        if(ls != null) {
+     const ime = document.getElementById("ime").value;
+     const prezime = document.getElementById("prezime").value;
+     const oblikFigure = document.querySelector(
+       'input[name="figura"]:checked'
+     ).value;
 
-          let korisnici = JSON.parse(ls);
-          korisnici.push(korisnik);
-          localStorage.setItem('korisnici', JSON.stringify(korisnici));
+     // Prikupljamo podatke iz LocalStorage-a i smestamo u promenljivu ls
+     let ls = localStorage.getItem('korisnici');
 
-        }else {
+     // Podatke iz forme smestamo u korisnika
+     let korisnik = {
+           "ime" : ime,
+           "prezime" : prezime,
+           "oblik" : oblikFigure
+       }
 
-          // prvi put koristimo formu(aplikaciju) na ovom kompu. Pravimo niz u koji smestamo podatke iz forme a onda iz niza stavljamo u storage
-          let korisnici = [];
-          korisnici.push(korisnik);
-          localStorage.setItem('korisnici', JSON.stringify(korisnici));
+     //ako posotji item u storage-u prikupljamo te podatke i na te podatke smestamo nove koji dolaze iz forme
+     if(ls != null) {
 
-        }
+       let korisnici = JSON.parse(ls);
+       korisnici.push(korisnik);
+       localStorage.setItem('korisnici', JSON.stringify(korisnici));
+
+     }else {
+
+       // prvi put koristimo formu(aplikaciju) na ovom kompu. Pravimo niz u koji smestamo podatke iz forme a onda iz niza stavljamo u storage
+       let korisnici = [];
+       korisnici.push(korisnik);
+       localStorage.setItem('korisnici', JSON.stringify(korisnici));
+
+     }
+  }
     
   });
   
@@ -51,18 +59,24 @@ document.querySelector(".prijava").addEventListener("click", function () {
     const ime = document.getElementById("ime").value;
     const prezime = document.getElementById("prezime").value;
     const figura = document.querySelector('input[name="figura"]:checked');
+    const lozinka = document.getElementById("lozinka").value;
+    console.log(typeof lozinka, typeof ime);
 
     // Ukoliko polja nisu popunjena prikazujemo preko labele poruku. Uklanjamo joj klasu hidden kako bi bila vidljiva.
     if(ime.trim().length === 0){
       document.querySelector('.imeValidacija').classList.remove("hidden");
     }else if(prezime.trim().length === 0){
       document.querySelector(".prezimeValidacija").classList.remove("hidden");
+    }else if(lozinka.trim().length === 0){
+      console.log('lozinka je prazna');
+      document.querySelector(".lozinkaValidacija").classList.remove("hidden");
     }else if(figura === null){
       document.querySelector(".figuraValidacija").classList.remove("hidden");
     }
-  
+    
     // Ukoliko prodjemo formu (sva polja budu popunjena f-ja nam vraca true). 
-    if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null ){
+    if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null && lozinka.trim().length != 0){
+      alert('Vase vreme krece sada');
       return true;
     }else{
       return false;
@@ -88,7 +102,8 @@ document.querySelector(".prijava").addEventListener("click", function () {
         ime : document.getElementById("ime").value,
         prezime : document.getElementById("prezime").value,
         figura : document.querySelector('input[name="figura"]:checked').value,
-        vreme : ukupnoVreme
+        vreme : ukupnoVreme,
+        lozinka : document.getElementById("lozinka").value
       }
       
     axios.post('http://localhost/js-vezbanje/dodajigraca.php', data)

@@ -11,18 +11,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST)){
 
     if(!empty($data)){
      
-        if(isset($data['ime']) && isset($data['prezime']) && isset($data['figura']) && isset($data['vreme'])){
+        if(isset($data['ime']) && isset($data['prezime']) && isset($data['figura']) && isset($data['vreme']) && isset($data['lozinka'])){
          
-            if(!empty($data['ime']) && !empty($data['prezime']) && !empty($data['figura']) && !empty($data['vreme'])){
+            if(!empty($data['ime']) && !empty($data['prezime']) && !empty($data['figura']) && !empty($data['vreme']) && !empty($data['lozinka'])){
            
                 $ime = $data['ime'];
                 $prezime = $data['prezime'];
                 $figura = $data['figura'];
                 $vreme = $data['vreme'];
+                $lozinka = $data['lozinka'];
     
         
-                $stmt = $conn->prepare("INSERT INTO igrac (ime, prezime, figura, vreme) VALUES (?, ? ,?, ?)");
-                $stmt->bind_param("ssss", $ime, $prezime, $figura, $vreme);
+                $stmt = $conn->prepare("INSERT INTO igrac (ime, prezime, figura, vreme, lozinka) VALUES (?, ? ,?, ?, ?)");
+                $stmt->bind_param("sssss", $ime, $prezime, $figura, $vreme, $lozinka);
                 $stmt->execute();
         
                 $stmt->close();
