@@ -9,17 +9,11 @@ const skorIgraca = function() {
         
         let dugmeObrisi;
         sviIgraci.forEach(igrac => {
-            if(igrac.lozinka === 'admin'){
-                dugmeObrisi = `<button type="button" class="obrisiIgraca btn btn-danger">Obrisi</button>`;
-            }else{
-                dugmeObrisi = '';
-            }
-            tabelaIgraca.innerHTML += `<tr> 
+            tabelaIgraca.innerHTML += `<tr> <td>${igrac.id}</td>
                                             <td>${igrac.ime}</td>
                                             <td>${igrac.prezime}</td>
                                             <td>${igrac.figura}</td>
                                             <td>${igrac.vreme}</td>
-                                            <td>${igrac.lozinka}  ${dugmeObrisi}</td>
                                         </tr>`
         });
     })
@@ -27,19 +21,26 @@ const skorIgraca = function() {
 
 skorIgraca();
 
+// Slanje lozinke na API
+document.body.addEventListener('click', function(e){
+    if(e.target.classList.contains('obrisiSkor')){
+        let lozinka = document.getElementById('lozinka').value;
+        axios.post('http://localhost/js-vezbanje/obrisiIgraca.php', {
+                Lozinka : lozinka
+            })
+            .then(response => {
+                // console.log(response.data.message);
+                Swal.fire(response.data.message);
+                // alert(response.data.message);
+                // location.reload();
+            })
+            .catch(error => {console.error(error)});
+    }
+})
 
-let obrisi = document.getElementById("obirsiIgraca");
 
+// F-ja za brisanje input polja lozinke 
 
-/* dodaj dugme OBRISI SKOR
-
-na klik pozivas novi poziv ka endpointu DELETE zahtev
-
-u php dodas novu proveru na dnu da li je delete zahtev i ako jeste
-onda proveravasd da li je stigal LOZINKA (novo polje u zahtevu sa fronta kao sto je ime i li prezime)
-
-ako je lozinak == 'admin' onda nastavi ako nije odna vrati pogresna lozinka i prikazi korinsiku tu poruku renderuj mu
-ako je sve ok onda neka obrise sve iz tabele igrac
-
-
-*/
+const brisanjePoljaLozinke = function(){
+    document.getElementById('lozinka').value = '';
+}

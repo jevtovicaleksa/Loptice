@@ -1,10 +1,10 @@
-const brojLoptica = 24;
+const brojLoptica = 3;
 const main = document.querySelector(".main");
 const forma = document.querySelector(".forma");
 const naslovBoje = document.querySelector(".naslovBoje");
 const treBoja = document.querySelector(".trenutnaBoja");
-const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
-// const boje = ["#0984e3", "#d63031"];
+// const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
+const boje = ["#0984e3", "#d63031"];
 const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
 
 let oblik = "oblikPravougaonik";
