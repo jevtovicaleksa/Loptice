@@ -75,7 +75,11 @@ document.querySelector(".prijava").addEventListener("click", function () {
     }
     
     // Ukoliko prodjemo formu (sva polja budu popunjena f-ja nam vraca true). 
+<<<<<<< HEAD
     if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null && lozinka.trim().length != 0){
+=======
+    if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null){
+>>>>>>> 33e1f7977d931783a7190543c3893dcc7503b6a1
       alert('Vase vreme krece sada');
       return true;
     }else{

@@ -19,11 +19,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST)){
                 $prezime = $data['prezime'];
                 $figura = $data['figura'];
                 $vreme = $data['vreme'];
+<<<<<<< HEAD
                 $lozinka = $data['lozinka'];
     
         
                 $stmt = $conn->prepare("INSERT INTO igrac (ime, prezime, figura, vreme, lozinka) VALUES (?, ? ,?, ?, ?)");
                 $stmt->bind_param("sssss", $ime, $prezime, $figura, $vreme, $lozinka);
+=======
+
+                $stmt = $conn->prepare("INSERT INTO igrac (ime, prezime, figura, vreme) VALUES (?, ? ,?, ?)");
+                $stmt->bind_param("ssss", $ime, $prezime, $figura, $vreme);
+>>>>>>> 33e1f7977d931783a7190543c3893dcc7503b6a1
                 $stmt->execute();
         
                 $stmt->close();

@@ -9,11 +9,14 @@ const skorIgraca = function() {
         
         let dugmeObrisi;
         sviIgraci.forEach(igrac => {
+<<<<<<< HEAD
             if(igrac.lozinka === 'admin'){
                 dugmeObrisi = `<button type="button" class="obrisiIgraca btn btn-danger">Obrisi skor</button>`;
             }else{
                 dugmeObrisi = '';
             }
+=======
+>>>>>>> 33e1f7977d931783a7190543c3893dcc7503b6a1
             tabelaIgraca.innerHTML += `<tr> <td>${igrac.id}</td>
                                             <td>${igrac.ime}</td>
                                             <td>${igrac.prezime}</td>
@@ -27,6 +30,7 @@ const skorIgraca = function() {
 
 skorIgraca();
 
+<<<<<<< HEAD
 
 document.body.addEventListener('click', function(e){ 
      if(e.target.classList.contains('obrisiIgraca')){       
@@ -53,3 +57,28 @@ ako je lozinak == 'admin' onda nastavi ako nije odna vrati pogresna lozinka i pr
 ako je sve ok onda neka obrise sve iz tabele igrac
 
 */
+=======
+// Slanje lozinke na API
+document.body.addEventListener('click', function(e){
+    if(e.target.classList.contains('obrisiSkor')){
+        let lozinka = document.getElementById('lozinka').value;
+        axios.post('http://localhost/js-vezbanje/obrisiIgraca.php', {
+                Lozinka : lozinka
+            })
+            .then(response => {
+                // console.log(response.data.message);
+                Swal.fire(response.data.message);
+                // alert(response.data.message);
+                // location.reload();
+            })
+            .catch(error => {console.error(error)});
+    }
+})
+
+
+// F-ja za brisanje input polja lozinke 
+
+const brisanjePoljaLozinke = function(){
+    document.getElementById('lozinka').value = '';
+}
+>>>>>>> 33e1f7977d931783a7190543c3893dcc7503b6a1
