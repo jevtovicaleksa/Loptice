@@ -15,22 +15,23 @@ body {
   gap: 40px;
 }
 
+
 .container {
   height: 60px;
 }
 
-.oblikKrug {
+.krug {
   padding: 15px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
 
-.oblikPravougaonik {
+.pravougaonik {
   padding: 20px;
 }
 
-.oblikKvadrat {
+.kvadrat {
   padding: 20px;
   width: 30px;
   height: 30px;
@@ -60,7 +61,7 @@ body {
 }
 
 .forma {
-  display: grid;
+  /* display: grid; */
   background-color: white;
   justify-content: center;
 }

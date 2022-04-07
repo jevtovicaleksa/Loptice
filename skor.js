@@ -28,7 +28,29 @@ document.body.addEventListener('click', function (e) {
             Lozinka: lozinka
         })
             .then(response => {
-                Swal.fire(response.data.message);
+                if (response.data.message === 'Igrači će se obrisati') {
+                    Swal.fire({
+                        title: 'Da li ste sigurni?',
+                        text: response.data.message,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Da, obriši!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Uspešno obrisano!'
+                            )
+                            window.location.reload();
+                        }
+                    })
+                } else {
+                    Swal.fire({
+                        title: response.data.message,
+                        icon: 'warning'
+                    })
+                }
             })
             .catch(error => { console.error(error) });
     }

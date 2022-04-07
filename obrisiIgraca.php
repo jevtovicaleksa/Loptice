@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->close();
             $conn->close();
-            $arr = array('message' => 'Uspesno ste obrisali igrace');
+            $arr = array('message' => 'Igrači će se obrisati');
             header('HTTP/1.1 201 Created');
             echo json_encode($arr);
         } else {
 
-            $arr = array('message' => 'Uneli ste pogresnu lozinku');
+            $arr = array('message' => 'Uneli ste pogrešnu lozinku');
             header('HTTP/1.1 201 Created');
             echo json_encode($arr);
         }
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
 
-    $arr = array('message' => 'Pogresan metod');
+    $arr = array('message' => 'Pogrešan metod');
     header('HTTP/1.1 201 Created');
     echo json_encode($arr);
 }
