@@ -59,23 +59,18 @@ document.querySelector(".prijava").addEventListener("click", function () {
     const ime = document.getElementById("ime").value;
     const prezime = document.getElementById("prezime").value;
     const figura = document.querySelector('input[name="figura"]:checked');
-    const lozinka = document.getElementById("lozinka").value;
-    console.log(typeof lozinka, typeof ime);
 
     // Ukoliko polja nisu popunjena prikazujemo preko labele poruku. Uklanjamo joj klasu hidden kako bi bila vidljiva.
     if(ime.trim().length === 0){
       document.querySelector('.imeValidacija').classList.remove("hidden");
     }else if(prezime.trim().length === 0){
       document.querySelector(".prezimeValidacija").classList.remove("hidden");
-    }else if(lozinka.trim().length === 0){
-      console.log('lozinka je prazna');
-      document.querySelector(".lozinkaValidacija").classList.remove("hidden");
     }else if(figura === null){
       document.querySelector(".figuraValidacija").classList.remove("hidden");
     }
     
     // Ukoliko prodjemo formu (sva polja budu popunjena f-ja nam vraca true). 
-    if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null && lozinka.trim().length != 0){
+    if(ime.trim().length != 0 && prezime.trim().length != 0 && figura != null){
       alert('Vase vreme krece sada');
       return true;
     }else{
@@ -102,8 +97,7 @@ document.querySelector(".prijava").addEventListener("click", function () {
         ime : document.getElementById("ime").value,
         prezime : document.getElementById("prezime").value,
         figura : document.querySelector('input[name="figura"]:checked').value,
-        vreme : ukupnoVreme,
-        lozinka : document.getElementById("lozinka").value
+        vreme : ukupnoVreme
       }
       
     axios.post('http://localhost/js-vezbanje/dodajigraca.php', data)
