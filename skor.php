@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 include 'database.php';
 
-$sql = "SELECT * FROM igrac";
+$sql = "SELECT * FROM igrac ORDER BY vreme";
 $result = $conn->query($sql); // rezultati upita
 
 $nizSkorova = array(); // pravimo niz
-while ($r = mysqli_fetch_assoc($result)){
+while ($r = mysqli_fetch_assoc($result)) {
     $nizSkorova[] = $r;
 }
 

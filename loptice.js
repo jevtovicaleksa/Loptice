@@ -1,10 +1,10 @@
-const brojLoptica = 3;
+const brojLoptica = 24;
 const main = document.querySelector(".main");
 const forma = document.querySelector(".forma");
 const naslovBoje = document.querySelector(".naslovBoje");
 const treBoja = document.querySelector(".trenutnaBoja");
-// const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
-const boje = ["#0984e3", "#d63031"];
+const boje = ["#0984e3", "#d63031", "#ffeaa7", "#00b894", "#a29bfe"];
+// const boje = ["#0984e3", "#d63031"];
 const naizmenicneBoje = boje.sort((a, b) => 0.5 - Math.random());
 
 let oblik = "oblikPravougaonik";
@@ -12,7 +12,6 @@ let oblik = "oblikPravougaonik";
 // Setujemo promenljive koje koristimo za izracunavanje vremena. Prosledjujemo ih funkciji
 let pocetnoVreme = 0;
 let krajnjeVreme = 0;
-// let ukupnoVreme = 0;
 
 // Setujemo promenljivu koju koristimo za promenu boje
 let pomocnaBoja = 0;
@@ -59,7 +58,6 @@ const obrisiLoptu = function (loptica, pocetak) {
         let ukupnoVreme = Math.abs((krajnjeVreme - pocetak) / 1000);
 
         // Dopunjavanje u localstorage vreme za svakog korisnika.
-
         // Prikuoljamo podatke koji se vec nalaze u ls, prilikom popunjavanja forme
         let lStorage = JSON.parse(localStorage.getItem("korisnici"));
 
@@ -68,7 +66,7 @@ const obrisiLoptu = function (loptica, pocetak) {
         localStorage.setItem("korisnici", JSON.stringify(lStorage));
         alert(`Vase vreme je ${ukupnoVreme} sekundi`);
         kreiranjeIgraca(ukupnoVreme);
-        window.location.reload();
+        window.location.href = "http://localhost/js-vezbanje/skor.html";
       }
     }
   } else {
@@ -93,17 +91,3 @@ const prikazatiBoju = function () {
 // Prikazuje mi prvu boju koju treba da uklonim
 const trenutnaBoja = document.querySelector(".trenutnaBoja");
 trenutnaBoja.style.backgroundColor = `${boje[pomocnaBoja]}`;
-
-//Dodavanje podataka iz localStorage u tabelu
-// let podaciLS = JSON.parse(localStorage.getItem("korisnici"));
-// if (podaciLS != null) {
-//   const teloTabele = document.getElementById("teloTabele");
-//   podaciLS.forEach((podatakIgraca) => {
-//     teloTabele.innerHTML += ` 
-//                         <tr>
-//                           <td>${podatakIgraca.ime}</td>
-//                           <td>${podatakIgraca.prezime}</td>
-//                           <td>${podatakIgraca.vreme}</td>
-//                         </tr> `;
-//   });
-// }

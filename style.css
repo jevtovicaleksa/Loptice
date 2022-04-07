@@ -1,52 +1,24 @@
-/* .main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-}
-.images {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.galerija {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hidden {
-  display: none;
-}
-.modal {
-  /* display: flex;
-  justify-content: space-between; */
-/* z-index: 1; */
-/* left: 0;
-  top: 0; */
-/* height: 100%; */
-/* width: 100%; */
-/* background-color: antiquewhite; */
-/* } */
-
 body {
   background-color: #2d3436;
 }
 
-#aplikacija{
+#aplikacija {
   height: 80vh;
 }
+
 .main {
   display: grid;
-  /* background-color: #ffffff; */
   background-color: #faf7f7;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   padding: 100px;
   gap: 40px;
 }
+
 .container {
-  height: 60px; /* kako bi zadrzao visinu  postavljamo visinu */
+  height: 60px;
 }
+
 .oblikKrug {
   padding: 15px;
   border-radius: 50%;
@@ -57,17 +29,20 @@ body {
 .oblikPravougaonik {
   padding: 20px;
 }
+
 .oblikKvadrat {
   padding: 20px;
   width: 30px;
   height: 30px;
 }
+
 .naslovBoje {
   display: block;
   text-align: center;
   color: white;
   padding-bottom: 20px;
- } 
+}
+
 .trenutnaBoja {
   position: relative;
   bottom: 40px;
@@ -76,27 +51,28 @@ body {
   height: 20px;
   margin: auto;
 }
+
 .trBoja {
   margin: auto;
   font-size: 20px;
   color: white;
   height: 20px;
-  /* width: 40%; */
 }
+
 .forma {
   display: grid;
-  /* width: 60%; */
-  /* gap: 10px; */
   background-color: white;
   justify-content: center;
 }
+
 .prijava {
-  /* width: 10%; */
   border-radius: 5px;
 }
+
 .hidden {
   display: none;
 }
+
 .tabelaRezultata,
 th,
 td {
@@ -105,60 +81,57 @@ td {
   background-color: white;
 }
 
-#skorIgraca{
+#skorIgraca {
   margin: auto;
   width: 70%;
 }
 
 
 /* Footer */
-
-
 .footer-basic {
-  padding:40px 0;
-  background-color:#bfbfbfcc;
-  color:#000000;
+  padding: 40px 0;
+  background-color: #bfbfbfcc;
+  color: #000000;
 }
 
 .footer-basic ul {
-  padding:0;
-  list-style:none;
-  text-align:center;
-  font-size:18px;
-  line-height:1.6;
-  margin-bottom:0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .footer-basic li {
-  padding:0 10px;
+  padding: 0 10px;
 }
 
 .footer-basic ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.8;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .footer-basic ul a:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 .footer-basic .social {
-  text-align:center;
-  /* padding-bottom:15px; */
+  text-align: center;
 }
 
 .footer-basic .copyright {
-  margin-top:15px;
-  text-align:center;
-  font-size:13px;
-  color:#ffffff;
-  margin-bottom:0;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  margin-bottom: 0;
 }
 
-
-
-
-/* display: flex;
-justify-content: space-between;
-align-items: center; */
+/* bootstap */
+.navbar-center {
+  position: absolute !important;
+  left: 45%;
+  color: #ffffff;
+}
