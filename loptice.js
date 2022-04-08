@@ -65,7 +65,7 @@ const obrisiLoptu = function (loptica, pocetak) {
         localStorage.setItem("korisnici", JSON.stringify(lStorage));
         alert(`Vase vreme je ${ukupnoVreme} sekundi`);
         kreiranjeIgraca(ukupnoVreme);
-        window.location.href = "http://localhost/js-vezbanje/skor.html";
+        window.location.href = "indexSkor.php";
       }
     }
   } else {

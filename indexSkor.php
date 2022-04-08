@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skor igraca</title>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="sweetalert2.all.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="style.css">
@@ -18,25 +17,9 @@
 <body style="background-color: aliceblue;">
   <div id="aplikacija">
 
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Početna</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="indexLoptice.html">Igra</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="skor.html">Skor tabela</a>
-          </li>
-          <li>
-            <p class="navbar navbar-center">RESTFULL API U PHP-U</p>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+
+    <?php include 'header.php'; ?>
 
     <!-- TABELA -->
     <div class="container mt-5">
@@ -54,8 +37,7 @@
         </tbody>
       </table>
       <div class="v-100 text-center mt-5">
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-          data-bs-target="#exampleModal">Obrisi</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Obrisi</button>
       </div>
     </div>
 
@@ -72,8 +54,7 @@
             <input type="password" id="lozinka">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-              onclick="brisanjePoljaLozinke();">Zatvori</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="brisanjePoljaLozinke();">Zatvori</button>
             <button type="button" class="btn btn-danger obrisiSkor">Obriši</button>
           </div>
         </div>
@@ -87,17 +68,15 @@
     <footer>
       <p class="social">ZAVRŠNI RAD - INTERNET TEHNOLOGIJE</p>
       <ul class="list-inline">
-        <li class="list-inline-item"><a href="index.html">Početna</a></li>
-        <li class="list-inline-item"><a href="indexLoptice.html">Igra</a></li>
-        <li class="list-inline-item"><a href="skor.html">Skor tabela</a></li>
+        <li class="list-inline-item"><a href="index.php">Početna</a></li>
+        <li class="list-inline-item"><a href="indexLoptice.php">Igra</a></li>
+        <li class="list-inline-item"><a href="indexSkor.php">Skor tabela</a></li>
       </ul>
       <p class="copyright">Jevtović Aleksa Ser 21/16</p>
     </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="skor.js"></script>
 </body>
 
